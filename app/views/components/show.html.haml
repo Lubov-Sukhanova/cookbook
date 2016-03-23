@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Dish:
+  = @component.dish
+%p
+  %b Amount:
+  = @component.amount
+%p
+  %b Units:
+  = @component.units
+%p
+  %b Ingredient:
+  = @component.ingredient
+
+= link_to 'Edit', edit_component_path(@component)
+\|
+= link_to 'Back', components_path
