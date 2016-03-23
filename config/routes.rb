@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :attachments
-  resources :users
   resources :components
   resources :dishes
   resources :ingredients
