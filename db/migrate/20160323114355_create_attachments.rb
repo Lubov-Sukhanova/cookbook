@@ -4,7 +4,7 @@ class CreateAttachments < ActiveRecord::Migration
       t.attachment :image
       t.integer :position
       t.belongs_to :dish, index: true, foreign_key: true
-      t.string :comment
+      t.text :comment
 
       t.timestamps null: false
     end

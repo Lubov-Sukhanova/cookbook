@@ -1,5 +1,43 @@
 ru:
-  models:
+  views:
+    pagination:
+      first: '<<'
+      last: '>>'
+      previous: '<'
+      next: '>'
+  activerecord:
+    models:
+      attachment: Вложения
       category: Категория блюда
-      component: Ингредиенты для блюда
-      
+      component: Ингредиент для блюда
+      dish: Блюдо
+      ingredient: Ингредиент
+      measure_unit: Единицы измерения
+    attributes:
+      attachment:
+        image: Изображение
+        position: Позиция
+        dish: Блюдо
+        comment: Комментарий
+      category:
+        name: Имя категории блюда
+        category: Подкатегория
+      component:
+        dish: Блюдо
+        amount: Количество
+        units: Единицы измерения
+        ingredient: Ингредиент
+      dish:
+        name: Название блюда
+        time_for_cook: Время приготовления
+        instructions: Инструкции по приготовлению
+        appliances_used: Используемая техника
+      ingredient:
+        name: Наменование ингредиента
+        description: Описание
+        alternative_name: Альтернативные наименования ингредиента
+        measure_unit: Ингредиент измеряется в
+      measure_unit:
+        standard_name: Стандартное наименование единицы измерения
+        nonstandard_name: Нестандартное наименование единицы измерения
+        quantity_in_standard: Количество в стандартных единицах

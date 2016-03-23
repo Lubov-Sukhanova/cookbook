@@ -1,5 +1,5 @@
 class Dish < ActiveRecord::Base
-  has_many :attachments, ->{ordering}, dependent: :destroy
+  has_many :attachments, ->{ordering}, dependent: :destroy, inverse_of: :dish
 
   scope :ordering, ->{order(:name)}
 
@@ -12,6 +12,6 @@ class Dish < ActiveRecord::Base
 
   def files=(val)
     val.each_with_index do |file, i|
-      self.attachments.build(image: file)
+      self.attachments.build(image: file, position: attachments.maximum(:position).to_i + i + 1)
   end
 end

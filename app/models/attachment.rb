@@ -1,5 +1,5 @@
 class Attachment < ActiveRecord::Base
-  belongs_to :dish
+  belongs_to :dish, inverse_of: :attachment
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -16,4 +16,5 @@ class Attachment < ActiveRecord::Base
     if self.dish
       self.position ||=self.dish.attachments.maximum(:position).to_i + 1
   end
+  true
 end
