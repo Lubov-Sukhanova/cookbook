@@ -1,0 +1,5 @@
+ru:
+  models:
+      category: Категория блюда
+      component: Ингредиенты для блюда
+      
