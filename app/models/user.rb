@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   ROLES = ['Пользователь', 'Администратор']
   has_secure_password
-  has_many :dishes, ->{ordering.full}, dependent: :destroy
+  has_many :dishes, ->{ordering}, dependent: :destroy
 
   scope :ordering, ->{order(:name)}
 
