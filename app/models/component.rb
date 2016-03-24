@@ -4,6 +4,6 @@ class Component < ActiveRecord::Base
 
   validates :dish, presence: true
   validates :amount, presence: true
-  validates :units, presence: true
+  validates :measure_unit, presence: true
   validates :ingredient, presence: true
 end

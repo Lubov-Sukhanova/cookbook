@@ -47,3 +47,5 @@ gem 'haml-rails'
 gem 'rails-i18n'
 
 gem 'paperclip'
+
+gem 'devise', '~> 3.4.0'

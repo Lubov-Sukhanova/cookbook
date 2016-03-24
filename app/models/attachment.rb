@@ -15,6 +15,6 @@ class Attachment < ActiveRecord::Base
   def set_default_position
     if self.dish
       self.position ||=self.dish.attachments.maximum(:position).to_i + 1
+    end
   end
-  true
 end

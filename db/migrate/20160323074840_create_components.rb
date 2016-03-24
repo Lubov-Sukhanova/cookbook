@@ -3,7 +3,7 @@ class CreateComponents < ActiveRecord::Migration
     create_table :components do |t|
       t.references :dish, index: true, foreign_key: true
       t.float :amount
-      t.string :units
+      t.string :measure_unit
       t.references :ingredient, index: true, foreign_key: true
 
       t.timestamps null: false

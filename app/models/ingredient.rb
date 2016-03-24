@@ -4,5 +4,4 @@ class Ingredient < ActiveRecord::Base
   scope :ordering, ->{order(:name)}
 
   validates :name, presence: true
-  validates :measure_unit, presence: true
 end

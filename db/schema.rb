@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160323114355) do
     t.datetime "image_updated_at"
     t.integer  "position"
     t.integer  "dish_id"
-    t.string   "comment"
+    t.text     "comment"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
@@ -32,17 +32,15 @@ ActiveRecord::Schema.define(version: 20160323114355) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "categories", ["category_id"], name: "index_categories_on_category_id", using: :btree
 
   create_table "components", force: :cascade do |t|
     t.integer  "dish_id"
     t.float    "amount"
-    t.string   "units"
+    t.string   "measure_unit"
     t.integer  "ingredient_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -53,8 +51,8 @@ ActiveRecord::Schema.define(version: 20160323114355) do
 
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
-    t.string   "time_for_cook"
-    t.string   "instructions"
+    t.integer  "time_for_cook"
+    t.text     "instructions"
     t.string   "appliances_used"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -64,33 +62,11 @@ ActiveRecord::Schema.define(version: 20160323114355) do
     t.string   "name"
     t.string   "description"
     t.string   "alternative_name"
-    t.integer  "measure_unit_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  add_index "ingredients", ["measure_unit_id"], name: "index_ingredients_on_measure_unit_id", using: :btree
-
-  create_table "measure_units", force: :cascade do |t|
-    t.string   "standard_name"
-    t.string   "nonstandard_name"
-    t.float    "quantity_in_standard"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "role"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   add_foreign_key "attachments", "dishes"
-  add_foreign_key "categories", "categories"
   add_foreign_key "components", "dishes"
   add_foreign_key "components", "ingredients"
-  add_foreign_key "ingredients", "measure_units"
 end
