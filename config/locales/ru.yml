@@ -1,5 +1,6 @@
 ru:
   views:
+    list: Список блюд
     pagination:
       first: '<<'
       last: '>>'

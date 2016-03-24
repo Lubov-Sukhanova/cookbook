@@ -13,5 +13,6 @@ class Dish < ActiveRecord::Base
   def files=(val)
     val.each_with_index do |file, i|
       self.attachments.build(image: file, position: attachments.maximum(:position).to_i + i + 1)
+    end
   end
 end
