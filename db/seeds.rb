@@ -11,9 +11,9 @@ categories = Category.create([{name: 'Гарниры'},{name: 'Крупы', cate
 measureunits = MeasureUnit.create([{standard_name: 'г', nonstandard_name: 'oz', quantity_in_standard: 28.3},
   {standard_name: 'г'}, {standard_name: 'шт.'}, {standard_name: 'мл'},
   {standard_name: 'ч.л.'}, {standard_name: 'ст.л.'}])
-ingredients = Ingredient.create([{name: = 'Белые грибы сушеные', measure_unit: = 'г'},
-  {name: = 'Чеснок дольки', measure_unit: = 'шт.'},
-  {name: = 'Киноа', description: 'Плоды считаются фруктами, так как учёные относят киноа к псевдозерновым культурам,
+ingredients = Ingredient.create([{name: 'Белые грибы сушеные', measure_unit: 'г'},
+  {name: 'Чеснок дольки', measure_unit: 'шт.'},
+  {name: 'Киноа', description: 'Плоды считаются фруктами, так как учёные относят киноа к псевдозерновым культурам,
     белые, жёлтые или красные, собранные в длинные, вьющиеся вдоль стеблей гроздья.',
     alternative_name: 'кинва, квинойя', measure_unit: 'г'}, {name: 'Лук репчатый', measure_unit: 'шт.'},
     {name: 'Оливковое масло', measure_unit: 'мл'}, {name: 'Соль', measure_unit: 'ч.л.'},
@@ -63,8 +63,7 @@ dishes = Dish.create([{name: 'Киноа с белыми грибами', time_f
     если вы их замораживали, увеличьте время приготовления до 25-30 минут в зависимости от размера.
     Готовые котлеты подавайте сразу же, горячими. Хрустящая золотистая корочка, нежное мясо и
     ароматная начинка — вот чего мы добивались! Приятного аппетита.', appliances_used: 'Мясорубка, блендер, духовка'}])
-components = Component.create([{dish: 'Киноа с белыми грибами', amount: , units: '', ingredient: ''},
-  {dish: 'Киноа с белыми грибами', amount: 50, units: 'г', ingredient: 'Белые грибы сушеные'},
+components = Component.create([{dish: 'Киноа с белыми грибами', amount: 50, units: 'г', ingredient: 'Белые грибы сушеные'},
   {dish: 'Киноа с белыми грибами', amount: 3, units: 'шт.', ingredient: 'Чеснок дольки'},
   {dish: 'Киноа с белыми грибами', amount: 350, units: 'г', ingredient: 'Киноа'},
   {dish: 'Киноа с белыми грибами', amount: 1, units: 'шт.', ingredient: 'Лук репчатый'},
