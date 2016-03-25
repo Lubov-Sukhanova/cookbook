@@ -43,9 +43,16 @@ group :development do
 end
 
 gem 'haml-rails'
-
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
+gem  'kaminari'
+# Internationalization API
 gem 'rails-i18n'
-
+# Paperclip is intended as an easy file attachment library for ActiveRecord
 gem 'paperclip'
+# Devise is a flexible authentication solution for Rails based on Warden
+# gem 'devise', '~> 3.4.0'
 
-gem 'devise', '~> 3.4.0'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+gem 'erb2haml'

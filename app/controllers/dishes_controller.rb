@@ -5,6 +5,12 @@ class DishesController < ApplicationController
   # GET /dishes.json
   def index
     @dishes = Dish.all
+    @images = Hash.new
+    @components = Hash.new
+    @dishes.each do |dish|
+      @images["#{dish.id}"] = Attachment.where(dish_id: dish.id).first.image
+      @components["#{dish.id}"] = Component.where(dish_id: dish.id)
+    end
   end
 
   # GET /dishes/1

@@ -14,7 +14,7 @@
   %tbody
     - @attachments.each do |attachment|
       %tr
-        %td= attachment.image
+        %td= image_tag "#{attachment.image}", size: "200x200"
         %td= attachment.position
         %td= attachment.dish
         %td= attachment.comment

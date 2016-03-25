@@ -1,21 +1,30 @@
 %h1= t('views.list')
 
-%table
+%table.table.table-striped
   %thead
     %tr
+      %th
       %th= t('activerecord.attributes.dish.name')
       %th= t('activerecord.attributes.dish.time_for_cook')
       %th= t('activerecord.attributes.dish.instructions')
       %th= t('activerecord.attributes.dish.appliances_used')
+      %th= 'Components'
+      %th
+      %th
       %th
 
   %tbody
     - @dishes.each do |dish|
       %tr
+        %td= image_tag @images["#{dish.id}"], size: '200x200'
         %td= dish.name
         %td= dish.time_for_cook
         %td= dish.instructions
         %td= dish.appliances_used
+        %td
+          %ul
+            - @components["#{dish.id}"].each do |i|
+              %li= i.amount
         %td= link_to t('views.Show'), dish
         %td= link_to t('views.Edit'), edit_dish_path(dish)
         %td= link_to t('views.Destroy'), dish, :method => :delete, :data => { :confirm => 'Are you sure?' }
