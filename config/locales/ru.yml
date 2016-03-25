@@ -1,6 +1,10 @@
 ru:
   views:
     list: Список блюд
+    New Dish: Добавить рецепт
+    Show: Показать рецепт
+    Edit: Редактировать рецепт
+    Destroy: Удалить рецепт
     pagination:
       first: '<<'
       last: '>>'
