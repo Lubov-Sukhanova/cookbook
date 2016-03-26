@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :attachments
   resources :components
   resources :dishes
-  resources :ingredients
   # resources :measure_units
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.

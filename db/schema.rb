@@ -41,13 +41,12 @@ ActiveRecord::Schema.define(version: 20160323114355) do
     t.integer  "dish_id"
     t.float    "amount"
     t.string   "measure_unit"
-    t.integer  "ingredient_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "ingredient"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "components", ["dish_id"], name: "index_components_on_dish_id", using: :btree
-  add_index "components", ["ingredient_id"], name: "index_components_on_ingredient_id", using: :btree
 
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
@@ -58,15 +57,6 @@ ActiveRecord::Schema.define(version: 20160323114355) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.string   "alternative_name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
   add_foreign_key "attachments", "dishes"
   add_foreign_key "components", "dishes"
-  add_foreign_key "components", "ingredients"
 end

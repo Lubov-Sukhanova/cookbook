@@ -14,10 +14,8 @@ ru:
     models:
       attachment: Вложения
       category: Категория блюда
-      component: Ингредиент для блюда
+      component: Ингредиент блюда
       dish: Блюдо
-      ingredient: Ингредиент
-      measure_unit: Единицы измерения
     attributes:
       attachment:
         image: Изображение
@@ -30,19 +28,10 @@ ru:
       component:
         dish: Блюдо
         amount: Количество
-        units: Единицы измерения
+        measure_unit: Единицы измерения
         ingredient: Ингредиент
       dish:
         name: Название блюда
         time_for_cook: Время приготовления
         instructions: Инструкции по приготовлению
         appliances_used: Используемая техника
-      ingredient:
-        name: Наменование ингредиента
-        description: Описание
-        alternative_name: Альтернативные наименования ингредиента
-        measure_unit: Ингредиент измеряется в
-      measure_unit:
-        standard_name: Стандартное наименование единицы измерения
-        nonstandard_name: Нестандартное наименование единицы измерения
-        quantity_in_standard: Количество в стандартных единицах

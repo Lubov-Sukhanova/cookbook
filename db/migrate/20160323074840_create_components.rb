@@ -4,7 +4,7 @@ class CreateComponents < ActiveRecord::Migration
       t.references :dish, index: true, foreign_key: true
       t.float :amount
       t.string :measure_unit
-      t.references :ingredient, index: true, foreign_key: true
+      t.string :ingredient
 
       t.timestamps null: false
     end

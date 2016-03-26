@@ -11,23 +11,6 @@ Category.create({name: 'Крупы', position: 2})
 Category.create({name: 'Котлеты', position: 3})
 Category.create({name: 'Птица', position: 4})
 
-mushrooms = Ingredient.create({name: 'Белые грибы сушеные'})
-garlic = Ingredient.create({name: 'Чеснок дольки'})
-kinoa_ingredient = Ingredient.create({name: 'Киноа', description: 'Плоды считаются фруктами, так как учёные относят киноа к псевдозерновым культурам,
-    белые, жёлтые или красные, собранные в длинные, вьющиеся вдоль стеблей гроздья.',
-    alternative_name: 'кинва, квинойя'})
-onion = Ingredient.create({name: 'Лук репчатый'})
-olive_oil = Ingredient.create({name: 'Оливковое масло'})
-salt = Ingredient.create({name: 'Соль'})
-chicken_breast = Ingredient.create({name: 'Куриная грудка'})
-cream = Ingredient.create({name: 'Сливки 20-22%'})
-pepper = Ingredient.create({name: 'Перец черный молотый'})
-dill = Ingredient.create({name: 'Укроп'})
-butter_ghee = Ingredient.create({name: 'Сливочное топленое масло'})
-white_bread = Ingredient.create({name: 'Хлеб пшеничный'})
-butter = Ingredient.create({name: 'Сливочное масло'})
-parsley = Ingredient.create({name: 'Петрушка'})
-breadcrumbs = Ingredient.create({name: 'Сухари панировочные'})
 kinoa = Dish.create({name: 'Киноа с белыми грибами', time_for_cook: 60, instructions: 'Сушёные грибы
   замочите в холодной воде (около 500-700 мл) на час. Этого времени должно хватить, чтобы они
   полностью смягчились. Лук и чеснок мелко нарежьте. В глубокой сковороде или воке нагрейте
@@ -69,23 +52,23 @@ kurinue_kotletu = Dish.create({name: 'Куриные котлеты', time_for_c
     если вы их замораживали, увеличьте время приготовления до 25-30 минут в зависимости от размера.
     Готовые котлеты подавайте сразу же, горячими. Хрустящая золотистая корочка, нежное мясо и
     ароматная начинка — вот чего мы добивались! Приятного аппетита.', appliances_used: 'Мясорубка, блендер, духовка'})
-components = Component.create([{dish: kinoa, amount: 50, measure_unit: 'г', ingredient: mushrooms},
-  {dish: kinoa, amount: 3, measure_unit: 'шт.', ingredient: garlic},
-  {dish: kinoa, amount: 350, measure_unit: 'г', ingredient: kinoa_ingredient},
-  {dish: kinoa, amount: 1, measure_unit: 'шт.', ingredient: onion},
-  {dish: kinoa, amount: 40, measure_unit: 'мл', ingredient: olive_oil},
-  {dish: kinoa, amount: 1, measure_unit: 'ч.л.', ingredient: salt},
-  {dish: kurinue_kotletu, amount: 800, measure_unit: 'г', ingredient: chicken_breast},
-  {dish: kurinue_kotletu, amount: 100, measure_unit: 'мл', ingredient: cream},
-  {dish: kurinue_kotletu, amount: 0.5, measure_unit: 'ч.л.', ingredient: pepper},
-  {dish: kurinue_kotletu, amount: 20, measure_unit: 'г', ingredient: dill},
-  {dish: kurinue_kotletu, amount: 1, measure_unit: 'шт.', ingredient: garlic},
-  {dish: kurinue_kotletu, amount: 50, measure_unit: 'г', ingredient: butter_ghee},
-  {dish: kurinue_kotletu, amount: 100, measure_unit: 'г', ingredient: white_bread},
-  {dish: kurinue_kotletu, amount: 1, measure_unit: 'ч.л.', ingredient: salt},
-  {dish: kurinue_kotletu, amount: 100, measure_unit: 'г', ingredient: butter},
-  {dish: kurinue_kotletu, amount: 20, measure_unit: 'г', ingredient: parsley},
-  {dish: kurinue_kotletu, amount: 4, measure_unit: 'ст.л.', ingredient: breadcrumbs}])
+components = Component.create([{dish: kinoa, amount: 50, measure_unit: 'г', ingredient: 'Белые грибы сушеные'},
+  {dish: kinoa, amount: 3, measure_unit: 'шт.', ingredient: 'Чеснок дольки'},
+  {dish: kinoa, amount: 350, measure_unit: 'г', ingredient: 'Киноа'},
+  {dish: kinoa, amount: 1, measure_unit: 'шт.', ingredient: 'Лук репчатый'},
+  {dish: kinoa, amount: 40, measure_unit: 'мл', ingredient: 'Оливковое масло'},
+  {dish: kinoa, amount: 1, measure_unit: 'ч.л.', ingredient: 'Соль'},
+  {dish: kurinue_kotletu, amount: 800, measure_unit: 'г', ingredient: 'Куриная грудка'},
+  {dish: kurinue_kotletu, amount: 100, measure_unit: 'мл', ingredient: 'Сливки 20-22%'},
+  {dish: kurinue_kotletu, amount: 0.5, measure_unit: 'ч.л.', ingredient: 'Перец черный молотый'},
+  {dish: kurinue_kotletu, amount: 20, measure_unit: 'г', ingredient: 'Укроп'},
+  {dish: kurinue_kotletu, amount: 1, measure_unit: 'шт.', ingredient: 'Чеснок дольки'},
+  {dish: kurinue_kotletu, amount: 50, measure_unit: 'г', ingredient: 'Сливочное топленое масло'},
+  {dish: kurinue_kotletu, amount: 100, measure_unit: 'г', ingredient: 'Хлеб пшеничный'},
+  {dish: kurinue_kotletu, amount: 1, measure_unit: 'ч.л.', ingredient: 'Соль'},
+  {dish: kurinue_kotletu, amount: 100, measure_unit: 'г', ingredient: 'Сливочное масло'},
+  {dish: kurinue_kotletu, amount: 20, measure_unit: 'г', ingredient: 'Петрушка'},
+  {dish: kurinue_kotletu, amount: 4, measure_unit: 'ст.л.', ingredient: 'Сухари панировочные'}])
 
 image_path1 = "#{Rails.root}/app/assets/images/kinoa.jpg"
 image_file1 = File.new(image_path1)
