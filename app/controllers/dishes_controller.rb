@@ -4,7 +4,12 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    @dishes = Dish.all
+    # raise params.inspect
+    if params.key?(:search)
+      @dishes = Dish.where("name LIKE ?", "%#{params[:search]}%")
+    else
+      @dishes = Dish.all
+    end
     @images = Hash.new
     @components = Hash.new
     @dishes.each do |dish|
