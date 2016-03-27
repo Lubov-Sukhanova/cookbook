@@ -5,6 +5,7 @@ ru:
     Show: Показать рецепт
     Edit: Редактировать рецепт
     Destroy: Удалить рецепт
+    Search: Поиск
     pagination:
       first: '<<'
       last: '>>'
