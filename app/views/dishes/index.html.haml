@@ -1,4 +1,4 @@
-%h1= t('views.list')
+%h1.page-header= t('views.list')
 
 %table.table.table-striped
   %thead
@@ -9,8 +9,6 @@
       %th= t('activerecord.attributes.dish.instructions')
       %th= t('activerecord.attributes.dish.appliances_used')
       %th= 'Components'
-      %th
-      %th
       %th
 
   %tbody
@@ -26,7 +24,4 @@
             - @components["#{dish.id}"].each do |i|
               %li= i.amount
         %td= link_to t('views.Show'), dish
-        %td= link_to t('views.Edit'), edit_dish_path(dish)
-        %td= link_to t('views.Destroy'), dish, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
 %br

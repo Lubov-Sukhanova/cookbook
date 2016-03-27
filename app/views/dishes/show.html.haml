@@ -1,18 +1,22 @@
 %p#notice= notice
+%h1.page-header= @dish.name
+%p= image_tag @images["#{@dish.id}"], size: '200x200'
+.panel.panel-default
+  .panel-heading
+    %b= t('activerecord.attributes.dish.time_for_cook')
+    = @dish.time_for_cook
+    = t('views.min')
+  %table.table
 
-%p
-  %b Name:
-  = @dish.name
-%p
-  %b Time for cook:
-  = @dish.time_for_cook
-%p
-  %b Instructions:
-  = @dish.instructions
+  .panel-body
+    %p
+      = @dish.instructions
+
 %p
   %b Appliances used:
   = @dish.appliances_used
 
-= link_to 'Edit', edit_dish_path(@dish)
+= link_to link_to t('views.Edit'), edit_dish_path(@dish)
 \|
-= link_to 'Back', dishes_path
+= link_to t('views.Destroy'), @dish, :method => :delete, :data => { :confirm => 'Are you sure?' }
+-# = link_to 'Back', dishes_path

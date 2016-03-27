@@ -6,6 +6,7 @@ ru:
     Edit: Редактировать рецепт
     Destroy: Удалить рецепт
     Search: Поиск
+    min: мин
     pagination:
       first: '<<'
       last: '>>'

@@ -21,6 +21,10 @@ class DishesController < ApplicationController
   # GET /dishes/1
   # GET /dishes/1.json
   def show
+    @images = Hash.new
+    @components = Hash.new
+    @images["#{@dish.id}"] = Attachment.where(dish_id: @dish.id).first.image
+    @components["#{@dish.id}"] = Component.where(dish_id: @dish.id)
   end
 
   # GET /dishes/new
