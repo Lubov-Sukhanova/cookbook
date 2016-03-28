@@ -51,6 +51,8 @@ gem 'rails-i18n'
 gem 'paperclip'
 
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap_form'
+gem 'nested_form'
 gem 'autoprefixer-rails'
 
 gem 'erb2haml'

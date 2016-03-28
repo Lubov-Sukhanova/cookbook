@@ -42,6 +42,7 @@ class DishesController < ApplicationController
   # GET /dishes/new
   def new
     @dish = Dish.new
+    @dish.components.build
   end
 
   # GET /dishes/1/edit
@@ -96,6 +97,6 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:name, :time_for_cook, :instructions, :appliances_used)
+      params.require(:dish).permit(:name, :time_for_cook, :instructions, :appliances_used, components_attributes: [:id, :dish, :amount, :measure_unit, :ingredient, :_destroy])
     end
 end

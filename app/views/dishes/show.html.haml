@@ -1,5 +1,5 @@
 .container-fluid
-  %p#notice= notice
+  .alert.alert-success#notice{:role => "alert"}= notice
   .page-header
     %h1= @dish.name
   .col-md-3

@@ -1,5 +1,9 @@
 class Dish < ActiveRecord::Base
   has_many :attachments, ->{ordering}, dependent: :destroy, inverse_of: :dish
+  accepts_nested_attributes_for :attachments, allow_destroy: true
+
+  has_many :components, dependent: :destroy
+  accepts_nested_attributes_for :components, allow_destroy: true
 
   scope :ordering, ->{order(:name)}
 
