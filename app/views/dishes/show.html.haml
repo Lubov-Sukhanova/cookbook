@@ -7,10 +7,20 @@
     = @dish.time_for_cook
     = t('views.min')
   %table.table
-
-  .panel-body
-    %p
-      = @dish.instructions
+    %thead
+      %tr
+        %th= t('activerecord.attributes.component.ingredient')
+        %th= t('activerecord.attributes.component.amount')
+        %th= t('activerecord.attributes.component.measure_unit')
+    %tbody
+    - @components["#{@dish.id}"].each do |i|
+      %tr
+        %td= i.ingredient
+        %td= i.amount
+        %td= i.measure_unit
+    .panel-body
+      %p
+        = @dish.instructions
 
 %p
   %b Appliances used:
@@ -19,4 +29,6 @@
 = link_to link_to t('views.Edit'), edit_dish_path(@dish)
 \|
 = link_to t('views.Destroy'), @dish, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
 -# = link_to 'Back', dishes_path
