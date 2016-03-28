@@ -6,9 +6,6 @@
       %th
       %th= t('activerecord.attributes.dish.name')
       %th= t('activerecord.attributes.dish.time_for_cook')
-      %th= t('activerecord.attributes.dish.instructions')
-      %th= t('activerecord.attributes.dish.appliances_used')
-      %th= 'Components'
       %th
   %tbody
     - @dishes.each do |dish|
@@ -16,11 +13,5 @@
         %td= image_tag @images["#{dish.id}"], size: '200x200'
         %td= dish.name
         %td= dish.time_for_cook
-        %td= dish.instructions
-        %td= dish.appliances_used
-        %td
-          %ul
-            - @components["#{dish.id}"].each do |i|
-              %li= i.amount
         %td= link_to t('views.Show'), dish
 %br

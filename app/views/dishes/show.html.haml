@@ -1,34 +1,43 @@
-%p#notice= notice
-%h1.page-header= @dish.name
-%p= image_tag @images["#{@dish.id}"], size: '200x200'
-.panel.panel-default
-  .panel-heading
-    %b= t('activerecord.attributes.dish.time_for_cook')
-    = @dish.time_for_cook
-    = t('views.min')
-  %table.table
-    %thead
-      %tr
-        %th= t('activerecord.attributes.component.ingredient')
-        %th= t('activerecord.attributes.component.amount')
-        %th= t('activerecord.attributes.component.measure_unit')
-    %tbody
-    - @components["#{@dish.id}"].each do |i|
-      %tr
-        %td= i.ingredient
-        %td= i.amount
-        %td= i.measure_unit
-    .panel-body
-      %p
-        = @dish.instructions
+.container-fluid
+  %p#notice= notice
+  .page-header
+    %h1= @dish.name
+  .col-md-3
+    .list-group
+      - @dishes.each_with_index do |dish, i|
+        = link_to dish.name, dish, type: "button", class: "list-group-item"
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        %b= t('activerecord.attributes.dish.time_for_cook')
+        = @dish.time_for_cook
+        = t('views.min')
+      .panel-body
+        .row
+          .col-md-4
+            %p= image_tag @images["#{@dish.id}"], class: "img-responsive"
+          .col-md-8
+            %table.table
+              %thead
+                %tr
+                  %th= t('activerecord.attributes.component.ingredient')
+                  %th= t('activerecord.attributes.component.amount')
+                  %th= t('activerecord.attributes.component.measure_unit')
+              %tbody
+              - @components["#{@dish.id}"].each do |i|
+                %tr
+                  %td= i.ingredient
+                  %td= i.amount
+                  %td= i.measure_unit
+        %p
+          = @dish.instructions
+        %p
+          %b= t('activerecord.attributes.dish.appliances_used')
+          = @dish.appliances_used
+        %p
+          %a.btn.btn-default{:href => edit_dish_path(@dish), :role => "button"}= t('views.Edit')
+          %a.btn.btn-default{:href => edit_dish_path(@dish), :role => "button",
+           :method => :delete, :data => { :confirm => 'Are you sure?' }}= t('views.Destroy')
 
-%p
-  %b Appliances used:
-  = @dish.appliances_used
-
-= link_to link_to t('views.Edit'), edit_dish_path(@dish)
-\|
-= link_to t('views.Destroy'), @dish, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
--# = link_to 'Back', dishes_path
+    %br
+    -# = link_to 'Back', dishes_path

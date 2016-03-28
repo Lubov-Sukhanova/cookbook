@@ -4,23 +4,35 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    # raise params.inspect
-    if params.key?(:search)
-      @dishes = Dish.where("name LIKE ?", "%#{params[:search]}%")
+    if params.key?(:id)
+      redirect_to dish_url(id: params[:id], search: params[:search])
     else
-      @dishes = Dish.all
+      redirect_to dish_url(id: 1, search: params[:search])
     end
-    @images = Hash.new
-    @components = Hash.new
-    @dishes.each do |dish|
-      @images["#{dish.id}"] = Attachment.where(dish_id: dish.id).first.image
-      @components["#{dish.id}"] = Component.where(dish_id: dish.id)
-    end
+    # raise params.inspect
+    # if params.key?(:search)
+    #   @dishes = Dish.where("name LIKE ?", "%#{params[:search]}%")
+    # else
+    #   @dishes = Dish.all
+    # end
+    # @images = Hash.new
+    # @components = Hash.new
+    # @dishes.each do |dish|
+    #   @images["#{dish.id}"] = Attachment.where(dish_id: dish.id).first.image
+    #   @components["#{dish.idindex.html.haml}"] = Component.where(dish_id: dish.id)
+    # end
   end
 
   # GET /dishes/1
   # GET /dishes/1.json
   def show
+    # raise params.inspect
+    if params.key?(:search)
+      # raise params.inspect
+      @dishes = Dish.where("name LIKE ?", "%#{params[:search]}%").order(:id)
+    else
+      @dishes = Dish.all.order(:id)
+    end
     @images = Hash.new
     @components = Hash.new
     @images["#{@dish.id}"] = Attachment.where(dish_id: @dish.id).first.image
