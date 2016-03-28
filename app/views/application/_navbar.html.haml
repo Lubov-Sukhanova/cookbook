@@ -13,19 +13,19 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        - if params[:action] == "index"
-          %li.active
+        - if params[:action] == "create"
+          %li
             %a{:href => root_path}
               Все блюда
               %span.sr-only (current)
-          %li
+          %li.active
             %a{:href => new_dish_path}= t('views.New Dish')
         - else
-          %li
+          %li.active
             %a{:href => root_path}
               Все блюда
               %span.sr-only (current)
-          %li.active
+          %li
             %a{:href => new_dish_path}= t('views.New Dish')
         -# %li.dropdown
         -#   %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
