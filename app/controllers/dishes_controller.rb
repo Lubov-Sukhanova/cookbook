@@ -29,7 +29,7 @@ class DishesController < ApplicationController
     # raise params.inspect
     if params.key?(:search)
       # raise params.inspect
-      @dishes = Dish.where("name LIKE ?", "%#{params[:search]}%").order(:id)
+      @dishes = Dish.where("name ILIKE ?", "%#{params[:search]}%").order(:id)
     else
       @dishes = Dish.all.order(:id)
     end
