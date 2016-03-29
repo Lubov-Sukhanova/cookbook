@@ -1,0 +1,11 @@
+- flash.each do |key, value|
+  - if key == 'warning'
+    .alert.alert-warning.alert-dismissible.bg-warning{role: "alert"}
+      %button{ type: "button", class: "close", "data-dismiss" => "alert", "aria-label" => "Close"}
+        %span{ "aria-hidden" => "true"} &times;
+      = value
+  - else
+    .alert.alert-notice.alert-dismissible.bg-success{role: "alert"}
+      %button{ type: "button", class: "close", "data-dismiss" => "alert", "aria-label" => "Close"}
+        %span{ "aria-hidden" => "true"} &times;
+      = value

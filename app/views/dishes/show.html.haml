@@ -1,5 +1,5 @@
 .container-fluid
-  .alert.alert-success#notice{:role => "alert"}= notice
+  = render 'alerts'
   .page-header
     %h1= @dish.name
   .col-md-3
@@ -15,7 +15,7 @@
       .panel-body
         .row
           .col-md-4
-            %p= image_tag @images["#{@dish.id}"], class: "img-responsive"
+            %p= image_tag @dish.image, class: "img-responsive"
           .col-md-8
             %table.table
               %thead
@@ -35,9 +35,8 @@
           %b= t('activerecord.attributes.dish.appliances_used')
           = @dish.appliances_used
         %p
-          %a.btn.btn-default{:href => edit_dish_path(@dish), :role => "button"}= t('views.Edit')
-          %a.btn.btn-default{:href => edit_dish_path(@dish), :role => "button",
-           :method => :delete, :data => { :confirm => 'Are you sure?' }}= t('views.Destroy')
+          =link_to t('views.Edit'), edit_dish_path(@dish), role: "button", class: 'btn btn-default'
+          =link_to t('views.Destroy'), @dish, role: "button", class: 'btn btn-danger', data: {method: :delete, confirm: 'Вы уверены?'}
 
     %br
     -# = link_to 'Back', dishes_path

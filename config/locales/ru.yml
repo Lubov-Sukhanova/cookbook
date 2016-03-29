@@ -8,6 +8,11 @@ ru:
     Search: Поиск
     Save: Сохранить
     min: мин
+    updated: Рецепт обновлён успешно!
+    created: Рецепт создан!
+    destroyed: Рецепт удалён!
+    Remove this component: Удалить этот ингредиент
+    Add a component: Добавить ингредиент
     pagination:
       first: '<<'
       last: '>>'
@@ -15,16 +20,10 @@ ru:
       next: '>'
   activerecord:
     models:
-      attachment: Вложения
       category: Категория блюда
       component: Ингредиент блюда
       dish: Блюдо
     attributes:
-      attachment:
-        image: Изображение
-        position: Позиция
-        dish: Блюдо
-        comment: Комментарий
       category:
         name: Имя категории блюда
         category: Подкатегория
@@ -38,3 +37,4 @@ ru:
         time_for_cook: Время приготовления
         instructions: Инструкции по приготовлению
         appliances_used: Используемая техника
+        image: Изображение к блюду

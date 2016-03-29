@@ -11,6 +11,11 @@ Category.create({name: 'Крупы', position: 2})
 Category.create({name: 'Котлеты', position: 3})
 Category.create({name: 'Птица', position: 4})
 
+image_path1 = "#{Rails.root}/app/assets/images/kinoa.jpg"
+image_file1 = File.new(image_path1)
+image_path2 = "#{Rails.root}/app/assets/images/kurinue-kotletu.jpg"
+image_file2 = File.new(image_path2)
+
 kinoa = Dish.create({name: 'Киноа с белыми грибами', time_for_cook: 60, instructions: 'Сушёные грибы
   замочите в холодной воде (около 500-700 мл) на час. Этого времени должно хватить, чтобы они
   полностью смягчились. Лук и чеснок мелко нарежьте. В глубокой сковороде или воке нагрейте
@@ -26,7 +31,7 @@ kinoa = Dish.create({name: 'Киноа с белыми грибами', time_for
   и оставьте так на 10 минут, чтобы добиться более рассыпчатой консистенции.
   Этот рецепт хорошо поддается модернизации: можно дополнить лук и чеснок морковью и стеблевым
   сельдереем, приправить любимыми специями (например, такими, которые вы добавили бы к рису),
-  в конце приготовления добавить мелко нарезанную зелень а в непостном варианте — натёртый сыр.'})
+  в конце приготовления добавить мелко нарезанную зелень а в непостном варианте — натёртый сыр.', image: image_file1})
 kurinue_kotletu = Dish.create({name: 'Куриные котлеты', time_for_cook: 50, instructions: 'Куриные грудки очистите от
     жилок и пленок, нарежьте на небольшие кусочки. Даже если у вас хорошая мясорубка, не стоит лениться.
     Сделайте из мяса фарш с помощью мясорубки. Следите, чтобы мясо измельчалось равномерно и
@@ -51,7 +56,7 @@ kurinue_kotletu = Dish.create({name: 'Куриные котлеты', time_for_c
     доведите в духовке до готовности. Если котлеты были не замороженными, это займет минут 15,
     если вы их замораживали, увеличьте время приготовления до 25-30 минут в зависимости от размера.
     Готовые котлеты подавайте сразу же, горячими. Хрустящая золотистая корочка, нежное мясо и
-    ароматная начинка — вот чего мы добивались! Приятного аппетита.', appliances_used: 'Мясорубка, блендер, духовка'})
+    ароматная начинка — вот чего мы добивались! Приятного аппетита.', appliances_used: 'Мясорубка, блендер, духовка', image: image_file2})
 components = Component.create([{dish: kinoa, amount: 50, measure_unit: 'г', ingredient: 'Белые грибы сушеные'},
   {dish: kinoa, amount: 3, measure_unit: 'шт.', ingredient: 'Чеснок дольки'},
   {dish: kinoa, amount: 350, measure_unit: 'г', ingredient: 'Киноа'},
@@ -69,21 +74,3 @@ components = Component.create([{dish: kinoa, amount: 50, measure_unit: 'г', ing
   {dish: kurinue_kotletu, amount: 100, measure_unit: 'г', ingredient: 'Сливочное масло'},
   {dish: kurinue_kotletu, amount: 20, measure_unit: 'г', ingredient: 'Петрушка'},
   {dish: kurinue_kotletu, amount: 4, measure_unit: 'ст.л.', ingredient: 'Сухари панировочные'}])
-
-image_path1 = "#{Rails.root}/app/assets/images/kinoa.jpg"
-image_file1 = File.new(image_path1)
-image_path2 = "#{Rails.root}/app/assets/images/kurinue-kotletu.jpg"
-image_file2 = File.new(image_path2)
-
-attachments = Attachment.create([{:image => ActionDispatch::Http::UploadedFile.new(
-    :filename => File.basename(image_file1),
-    :tempfile => image_file1,
-    # detect the image's mime type with MIME if you can't provide it yourself.
-    :type => MIME::Types.type_for(image_path1).first.content_type),
-    :position => 1, :dish => kinoa},
-    {:image => ActionDispatch::Http::UploadedFile.new(
-        :filename => File.basename(image_file2),
-        :tempfile => image_file2,
-        # detect the image's mime type with MIME if you can't provide it yourself.
-        :type => MIME::Types.type_for(image_path2).first.content_type),
-        :position => 1, :dish => kurinue_kotletu}])

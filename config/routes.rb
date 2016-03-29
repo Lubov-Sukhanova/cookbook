@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :attachments
   resources :components
   resources :dishes
   # resources :measure_units
