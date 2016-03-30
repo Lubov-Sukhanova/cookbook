@@ -4,10 +4,12 @@ class DishesController < ApplicationController
   # GET /dishes
   # GET /dishes.json
   def index
-    if params.key?(:id)
-      redirect_to dish_url(id: params[:id], search: params[:search])
-    else
-      redirect_to dish_url(id: 1, search: params[:search])
+    if Dish.all.count == 0
+      if params.key?(:id)
+        redirect_to dish_url(id: params[:id], search: params[:search])
+      else
+        redirect_to dish_url(id: 1, search: params[:search])
+      end
     end
     # raise params.inspect
     # if params.key?(:search)

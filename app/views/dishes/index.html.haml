@@ -1,17 +1,8 @@
-%h1.page-header= t('views.list')
-
-%table.table.table-striped
-  %thead
-    %tr
-      %th
-      %th= t('activerecord.attributes.dish.name')
-      %th= t('activerecord.attributes.dish.time_for_cook')
-      %th
-  %tbody
-    - @dishes.each do |dish|
-      %tr
-        %td= image_tag @images["#{dish.id}"], size: '200x200'
-        %td= dish.name
-        %td= dish.time_for_cook
-        %td= link_to t('views.Show'), dish
-%br
+.container-fluid
+  .row
+    .col-md-4.col-xs-4.col-sm-4
+    .col-md-4.col-xs-4.col-sm-4
+      = image_tag 'cookbook.gif', class: "img-responsive"
+      %p
+        =link_to t('views.New Dish'), new_dish_path, role: "button", class: 'btn btn-default'
+    .col-md-4.col-xs-4.col-sm-4
